@@ -12,9 +12,7 @@ async function buttonBleToggleAsync(src) {
     });
     log(`Pairing device: ${device.name}`);
   }
-  // if (!device.gatt.connected) {
   const server = await device.gatt.connect();
-  // }
   log(`Device is connected: ${server.connected}`);
   // if (!device.gatt.connected) {
   //   return;
@@ -25,7 +23,6 @@ async function buttonBleToggleAsync(src) {
   const toggleCharacteristic = await service.getCharacteristic(
     toggleCharacteristicUUID
   );
-  // debugger;
 
   try {
     let encoder = new TextEncoder("utf-8");
